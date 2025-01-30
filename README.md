@@ -47,7 +47,7 @@ https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
 
 1. Commit your changes and push them to your GitHub repository:
 ```bash
-git add .github/workflows/notify.yml
+git add .
 git commit -m "Add Telegram notification workflow"
 git push
 ```
