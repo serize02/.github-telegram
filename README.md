@@ -31,7 +31,7 @@ https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
 1. Copy the content of this repo on `.github` directory.
 2. Customize the YAML file as needed to specify which events you want to monitor.
 
-### Commit and Push
+## Commit and Push
 
 1. Commit your changes and push them to your GitHub repository:
 ```bash
