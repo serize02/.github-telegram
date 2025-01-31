@@ -1,14 +1,14 @@
-## Getting Started
+# Getting Started
 
 Follow these steps to set up the workflow in your GitHub repository:
 
-### Create a Telegram Bot
+## Create a Telegram Bot
 
 1. Open Telegram and search for the user **@BotFather**.
 2. Start a chat with BotFather and use the command `/newbot` to create a new bot.
 3. Follow the prompts to name your bot and choose a username. Once created, you will receive a bot token.
 
-### Obtain Your Chat ID
+## Obtain Your Chat ID
 
 1. Start a chat with your new bot by searching for its username in Telegram.
 2. Send any message to the bot.
@@ -18,7 +18,7 @@ https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
 
 4. Look for the `chat` object in the JSON response to find your `chat_id`.
 
-### Add Secrets to Your GitHub Repository
+## Add Secrets to Your GitHub Repository
 
 1. Go to your GitHub repository where you want to set up the workflow.
 2. Click on **Settings** > **Secrets and variables** > **Actions** > **New repository secret**.
@@ -26,7 +26,7 @@ https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
 - **TOKEN**: Your Telegram bot token.
 - **CHAT_ID**: Your chat ID.
 
-### Configure the Workflow
+## Configure the Workflow
 
 1. Copy the content of this repo on `.github` directory.
 2. Customize the YAML file as needed to specify which events you want to monitor.
