@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository (Only Needed for Push Events)
-        if: github.event_name == 'push'
         uses: actions/checkout@v4
 
       - name: Send Telegram Notification
