@@ -21,14 +21,11 @@ case "$EVENT_NAME" in
   push)
     AUTHOR=$(jq -r '.pusher.name' "$EVENT_PATH")
     BRANCH=${GITHUB_REF#refs/heads/}
-    COMMIT_MESSAGES=$(jq -r '.commits[] | "- \(.message)"' "$EVENT_PATH" | sed 's/^/- /' | sed 's/^/- /' | sed 's/-/\\-/g' | paste -sd '\n')
-
+    
     MESSAGE=$(
-      echo "🚀 *Push Event* in \`$(escape_markdown "$REPO")\`"
-      echo "👤 *Author:* \`$(escape_markdown "$AUTHOR")\`"
-      echo "🌿 *Branch:* \`$(escape_markdown "$BRANCH")\`"
-      echo "📜 *Commits:*"
-      echo "$COMMIT_MESSAGES"
+      echo -e "🚀 *Push Event* in \`$(escape_markdown "$REPO")\`\n"
+      echo -e "👤 *Author:* \`$(escape_markdown "$AUTHOR")\`\n"
+      echo -e "🌿 *Branch:* \`$(escape_markdown "$BRANCH")\`\n"
     )
 
     send_message "$MESSAGE"
@@ -42,11 +39,10 @@ case "$EVENT_NAME" in
     TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$EVENT_PATH")
 
     MESSAGE=$(
-      echo "🔀 *Pull Request* in \`$(escape_markdown "$REPO")\`"
-      echo "👤 *Author:* \`$(escape_markdown "$AUTHOR")\`"
-      echo "📜 *Title:* \`$(escape_markdown "$TITLE")\`"
-      echo "📄 *Description:* \`$(escape_markdown "$BODY")\`"
-      echo "🌿 *Source:* \`$(escape_markdown "$SOURCE_BRANCH")\` → *Target:* \`$(escape_markdown "$TARGET_BRANCH")\`"
+      echo -e "🔀 *Pull Request* in \`$(escape_markdown "$REPO")\`\n"
+      echo -e "👤 *Author:* \`$(escape_markdown "$AUTHOR")\`\n"
+      echo -e "📜 *Title:* \`$(escape_markdown "$TITLE")\`\n"
+      echo -e "🌿 *Source:* \`$(escape_markdown "$SOURCE_BRANCH")\` → *Target:* \`$(escape_markdown "$TARGET_BRANCH")\`\n"
     )
 
     send_message "$MESSAGE"

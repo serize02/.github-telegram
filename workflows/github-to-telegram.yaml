@@ -1,11 +1,11 @@
 name: GitHub to Telegram
-on: [push, issues, pull_request]
+on: [push, pull_request]
 
 jobs:
   send-to-telegram:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository (Only Needed for Push Events)
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Send Telegram Notification
