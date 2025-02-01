@@ -34,18 +34,17 @@ case "$EVENT_NAME" in
   pull_request)
     AUTHOR=$(jq -r '.pull_request.user.login' "$EVENT_PATH")
     TITLE=$(jq -r '.pull_request.title' "$EVENT_PATH")
-    BODY=$(jq -r '.pull_request.body' "$EVENT_PATH")
     SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$EVENT_PATH")
     TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$EVENT_PATH")
 
     MESSAGE=$(
-      echo -e "🔀 *Pull Request* in \`$(escape_markdown "$REPO")\`\n"
+      echo -e "🔀 *Pull request* in \`$(escape_markdown "$REPO")\`\n"
       echo -e "👤 *Author:* \`$(escape_markdown "$AUTHOR")\`\n"
       echo -e "📜 *Title:* \`$(escape_markdown "$TITLE")\`\n"
       echo -e "🌿 *Source:* \`$(escape_markdown "$SOURCE_BRANCH")\` → *Target:* \`$(escape_markdown "$TARGET_BRANCH")\`\n"
     )
 
-    send_message "$MESSAGE"
+    send_message "$MESSAGE"  
     ;;
 
   *)
